@@ -95,6 +95,7 @@ GET `/categories`
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
+
 Example Response `{"1": "Science", 
     "2": "Art", 
     "3": "Geography", 
@@ -102,13 +103,14 @@ Example Response `{"1": "Science",
     "5": "Entertainment", 
     "6": "Sports"}`
 
-GET '/question'
+GET `/question`
 
 - Fetches a dictionary of questions in the which the keys are the ids and the value is the corresponding string of the question
 - Fetches a dictionary of categories in the which the keys are id, question, category, answer, difficulty
 - Request Arguments: Page Number
 - Returns: List of questions, number of total questions, categories and current category.
-Example Response {
+
+Example Response `{
   "categories": {
     "1": "Science", 
     "2": "Art", 
@@ -192,48 +194,51 @@ Example Response {
   ], 
   "success": true, 
   "total_questions": 20
-}
+}`
 
-DELETE '/questions/<question_id>'
+DELETE `/questions/<question_id>`
 
 - Deletes a question from the questions list.
 - Request Arguments: Question Id
-- Returns: true if successfully deleted, deleted_id of the question and number of total questions after deletion
-Example Response '{
+- Returns: true if successfully deleted, deleted_id of the question and number of total questions after deletion.
+
+Example Response `{
   "deleted_id": "24",
   "success": true,
   "total_questions": 19
-}'
+}`
 
-POST '/questions'
+POST `/questions`
 
 - Creates a question to the questions list
 - Request Body: question, answer, difficulty and category
 - Returns: true if successfully deleted, added question, answer, category, difficulty and number of total questions after deletion
-Example Request Payload ''{
+
+Example Request Payload `{
     "question": "The Taj Mahal is located in which Indian city?", 
     "answer": "Agra", 
     "difficulty": "2", 
-    "category": "3"}'
+    "category": "3"}`
 
-Example Response '{
+Example Response `{
   "answer": "Agra",
   "category": "3",
   "difficulty": "2",
   "question": "The Taj Mahal is located in which Indian city?",
   "success": true,
   "total_questions": 20
-}'
+}`
 
-POST '/questions/search'
+POST `/questions/search`
 
 - Searches for the questions case insensitively
 - Request Arguments: Page Number
 - Request Body: searchTerm
 - Returns: List of questions, number of total results and current category.
-Example Request Payload '{"searchTerm":"S"}'
 
-Example Response '{
+Example Request Payload `{"searchTerm":"S"}`
+
+Example Response `{
   "current_category": null,
   "questions": [
     {
@@ -253,15 +258,15 @@ Example Response '{
   ],
   "success": true,
   "total_results": 2
-}'
+}`
 
-GET '/categories/<int:category_id>/questions'
+GET `/categories/<int:category_id>/questions`
 
 - To get questions based on category
 - Request Arguments: Category Id and Page Number.
 - Returns: List of questions, number of total questions, current category and categories.
 
-Example Response '{
+Example Response `{
   "categories": [
     {
       "id": 1,
@@ -324,20 +329,20 @@ Example Response '{
   ],
   "success": true,
   "total_questions": 4
-}'
+}`
 
-POST '/quizzes'
+POST `/quizzes`
 - To get questions to play the quiz.
 - Request Body: quiz_category and previous_questions.
 - Returns: Random questions within the given category, even without category it can give you random from all questions.
 
-Example Request Payload '{
+Example Request Payload `{
     "previous_questions":[],
     "quiz_category":{
         "type":"Art",
-        "id":2}}'
+        "id":2}}`
 
-Example Response '{
+Example Response `{
   "question": {
     "answer": "Jackson Pollock",
     "category": 2,
@@ -346,11 +351,11 @@ Example Response '{
     "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
   },
   "success": true
-}'
+}`
 
 ## Errors
 
-Bad Request '400'
+Bad Request `400`
 ```
 {
     "success": False,
@@ -359,7 +364,7 @@ Bad Request '400'
 }
 ```
 
-Not Found '404'
+Not Found `404`
 ```
 {
     "success": False,
@@ -368,7 +373,7 @@ Not Found '404'
 }
 ```
 
-Unprocessable '422'
+Unprocessable `422`
 ```
 {
     "success": False,
@@ -377,7 +382,7 @@ Unprocessable '422'
 }
 ```
 
-Internal Server Error '500'
+Internal Server Error `500`
 ```
 {
     "success": False,
