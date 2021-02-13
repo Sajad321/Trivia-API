@@ -74,12 +74,17 @@ GET `/categories`
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
 
-Example Response `{"1": "Science", 
+Example Response 
+```
+{
+"1": "Science", 
     "2": "Art", 
     "3": "Geography", 
     "4": "History", 
     "5": "Entertainment", 
-    "6": "Sports"}`
+    "6": "Sports"
+}
+```
 
 GET `/questions`
 
@@ -88,7 +93,9 @@ GET `/questions`
 - Request Arguments: Page Number
 - Returns: List of questions, number of total questions, categories and current category.
 
-Example Response `{
+Example Response 
+```
+{
   "categories": {
     "1": "Science", 
     "2": "Art", 
@@ -172,7 +179,8 @@ Example Response `{
   ], 
   "success": true, 
   "total_questions": 20
-}`
+}
+```
 
 DELETE `/questions/<question_id>`
 
@@ -180,11 +188,14 @@ DELETE `/questions/<question_id>`
 - Request Arguments: Question Id
 - Returns: true if successfully deleted, deleted_id of the question and number of total questions after deletion.
 
-Example Response `{
+Example Response 
+```
+{
   "deleted_id": "24",
   "success": true,
   "total_questions": 19
-}`
+}
+```
 
 POST `/questions`
 
@@ -192,20 +203,27 @@ POST `/questions`
 - Request Body: question, answer, difficulty and category
 - Returns: true if successfully deleted, added question, answer, category, difficulty and number of total questions after deletion
 
-Example Request Payload `{
+Example Request Payload 
+```
+{
     "question": "The Taj Mahal is located in which Indian city?", 
     "answer": "Agra", 
     "difficulty": "2", 
-    "category": "3"}`
+    "category": "3"
+}    
+```
 
-Example Response `{
+Example Response 
+```
+{
   "answer": "Agra",
   "category": "3",
   "difficulty": "2",
   "question": "The Taj Mahal is located in which Indian city?",
   "success": true,
   "total_questions": 20
-}`
+}
+```
 
 POST `/questions/search`
 
@@ -214,9 +232,11 @@ POST `/questions/search`
 - Request Body: searchTerm
 - Returns: List of questions, number of total results and current category.
 
-Example Request Payload `{"searchTerm":"S"}`
+Example Request Payload ```{"searchTerm":"S"}```
 
-Example Response `{
+Example Response 
+```
+{
   "current_category": null,
   "questions": [
     {
@@ -236,7 +256,8 @@ Example Response `{
   ],
   "success": true,
   "total_results": 2
-}`
+}
+```
 
 GET `/categories/<int:category_id>/questions`
 
@@ -244,7 +265,9 @@ GET `/categories/<int:category_id>/questions`
 - Request Arguments: Category Id and Page Number.
 - Returns: List of questions, number of total questions, current category and categories.
 
-Example Response `{
+Example Response 
+```
+{
   "categories": [
     {
       "id": 1,
@@ -307,20 +330,27 @@ Example Response `{
   ],
   "success": true,
   "total_questions": 4
-}`
+}
+```
 
 POST `/quizzes`
 - To get questions to play the quiz.
 - Request Body: quiz_category and previous_questions.
 - Returns: Random questions within the given category, even without category it can give you random from all questions.
 
-Example Request Payload `{
+Example Request Payload 
+```
+{
     "previous_questions":[],
     "quiz_category":{
         "type":"Art",
-        "id":2}}`
+        "id":2}
+}        
+```
 
-Example Response `{
+Example Response 
+```
+{
   "question": {
     "answer": "Jackson Pollock",
     "category": 2,
@@ -329,7 +359,8 @@ Example Response `{
     "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
   },
   "success": true
-}`
+}
+```
 
 ## Errors
 
